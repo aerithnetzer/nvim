@@ -8,3 +8,5 @@ vim.g.vimtex_compiler_method = "latexmk"
 
 -- set spellcheck for markdown in lazyvim
 vim.cmd("autocmd FileType markdown setlocal spell")
+-- init.lua:
+--
