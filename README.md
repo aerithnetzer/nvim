@@ -1,10 +1,4 @@
-# nvim configuration files
+# 💤 LazyVim
 
-This repo is my personal nvim configuration files. 
-
-## Installation
-
-1. Clone this repo to ~/.config/nvim directory.
-2. ???
-3. Profit!
-
+A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+Refer to the [documentation](https://lazyvim.github.io/installation) to get started.

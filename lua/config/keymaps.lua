@@ -1,47 +1,37 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
---
 local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+local opts = { silent = false, noremap = true }
 
 -- Move to previous/next
-map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
-map("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
--- Re-order to previous/next
-map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
-map("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
--- Goto buffer in position...
-map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
-map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
-map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
-map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
-map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
-map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
-map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
-map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
-map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
-map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
--- Pin/unpin buffer
-map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
--- Close buffer
-map("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
--- Wipeout buffer
---                 :BufferWipeout
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
--- Magic buffer-picking mode
-map("n", "<C-p>", "<Cmd>BufferPick<CR>", opts)
--- Sort automatically by...
-map("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
-map("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>", opts)
-map("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
-map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
+map("n", "<Space>b,", "<Cmd>BufferPrevious<CR>", opts)
+map("n", "<Space>b.", "<Cmd>BufferNext<CR>", opts)
 
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used
+-- Re-order to previous/next
+map("n", "<Space>b<", "<Cmd>BufferMovePrevious<CR>", opts)
+map("n", "<Space>b>", "<Cmd>BufferMoveNext<CR>", opts)
+
+-- Goto buffer in position...
+for i = 1, 9 do
+  map("n", string.format("<Space>b%d", i), string.format("<Cmd>BufferGoto %d<CR>", i), opts)
+end
+map("n", "<Space>b0", "<Cmd>BufferLast<CR>", opts)
+
+-- Pin/unpin buffer
+map("n", "<Space>bp", "<Cmd>BufferPin<CR>", opts)
+
+-- Close buffer
+map("n", "<Space>bc", "<Cmd>BufferClose<CR>", opts)
+-- Restore buffer
+map("n", "<Space>bsc", "<Cmd>BufferRestore<CR>", opts)
+
+-- Magic buffer-picking mode
+map("n", "<Space>bp", "<Cmd>BufferPick<CR>", opts)
+map("n", "<Space>bp", "<Cmd>BufferPickDelete<CR>", opts)
+
+-- Sort automatically by...
+map("n", "<Space>bbb", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
+map("n", "<Space>bbd", "<Cmd>BufferOrderByDirectory<CR>", opts)
+map("n", "<Space>bbl", "<Cmd>BufferOrderByLanguage<CR>", opts)
+map("n", "<Space>bbw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
+
+-- Copilot keymaps
+map("n", "<Space>cci", "<Cmd>CopilotChatInPlace<CR>", opts)
