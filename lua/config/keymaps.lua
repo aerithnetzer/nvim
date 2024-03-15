@@ -35,3 +35,7 @@ map("n", "<Space>bbw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 
 -- Copilot keymaps
 map("n", "<Space>cci", "<Cmd>CopilotChatInPlace<CR>", opts)
+
+-- Pandoc Keymaps
+
+map("n", "<Space>pp", "<Cmd>terminal pandoc<CR>", opts)

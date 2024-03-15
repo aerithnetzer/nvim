@@ -1,3 +1,3 @@
 return {
-  { "jalvesaq/zotcite" },
+  { "aerithnetzer/zotcite" },
 }
