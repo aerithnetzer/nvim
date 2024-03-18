@@ -15,10 +15,6 @@ vim.g.notes_directories = { "~/warlock/card-file" }
 vim.g.livepreview_engine = "latexmk"
 vim.g.vimtex_compiler_method = "latexmk"
 vim.g["pandoc#biblio#bibtool_extra_args"] = "-r biblatex"
-<<<<<<< HEAD
-=======
-vim.opt.wrap = true
->>>>>>> refs/remotes/origin/main
 return {
   "folke/which-key.nvim",
   opts = function(_, opts)
