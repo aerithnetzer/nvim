@@ -15,11 +15,3 @@ vim.g.notes_directories = { "~/warlock/card-file" }
 vim.g.livepreview_engine = "latexmk"
 vim.g.vimtex_compiler_method = "latexmk"
 vim.g["pandoc#biblio#bibtool_extra_args"] = "-r biblatex"
-return {
-  "folke/which-key.nvim",
-  opts = function(_, opts)
-    if require("lazyvim.util").has("noice.nvim") then
-      opts.defaults["<leader>sn"] = { name = "+noice" }
-    end
-  end,
-}

@@ -1,3 +1,3 @@
 return {
-  { "jalvesaq/nvim-r" },
+  { "jalvesaq/nvim-r", enabled = true },
 }
