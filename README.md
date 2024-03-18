@@ -2,7 +2,7 @@
 
 Aerith Netzer's [LazyVim](https://github.com/LazyVim/LazyVim) configuration.
 
-Primarily to be used for Python data science development.
+Primarily to be used for Python/Web Development/LaTeX Typesetting.
 
 Some extensions on top of the original LazyVim configuration:
 
