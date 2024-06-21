@@ -1,7 +1,7 @@
 return {
   {
-    "jghauser/papis.nvim",
-    version = "0.2.0",
+    "localpapis",
+    dir = { "~/warlock/papis.nvim" },
     dependencies = {
       "kkharji/sqlite.lua",
       "nvim-lua/plenary.nvim",
@@ -17,6 +17,7 @@ return {
           notes_name = [[notes.norg]],
         },
         enable_keymaps = true,
+        init_filetypes = { "markdown", "org", "yaml" },
       })
     end,
   },
