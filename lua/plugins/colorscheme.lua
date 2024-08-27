@@ -1,6 +1,12 @@
 return {
+  -- add gruvbox
+  { "folke/tokyonight.nvim" },
+
+  -- Configure LazyVim to load gruvbox
   {
-    "folke/tokyonight.nvim",
-    opts = {},
+    "LazyVim/LazyVim",
+    opts = {
+      transparent = true,
+    },
   },
 }
