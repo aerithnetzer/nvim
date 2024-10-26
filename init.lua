@@ -74,6 +74,85 @@ require("lspconfig").harper_ls.setup({
   },
 })
 
-local lspconfig = require("lspconfig")
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.api.nvim_buf_set_keymap(
+      0,
+      "n",
+      "<Space>P",
+      "<cmd>!pandoc % --pdf-engine=xelatex -o "
+        .. vim.fn.expand("%:r")
+        .. ".pdf && open "
+        .. vim.fn.expand("%:r")
+        .. ".pdf<CR>",
+      { noremap = true, silent = true }
+    )
+  end,
+})
 
-require("lspconfig").marksman.setup({})
+require("cmp").setup({
+  sources = {
+    { name = "cmp_pandoc" },
+  },
+})
+require("cmp_pandoc").setup()
+
+vim.g.md_args = "--citeproc"
+
+local cmp = require("cmp")
+
+cmp.setup({
+  sources = {
+    { name = "buffer" },
+    { name = "path" },
+  },
+  mapping = {
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+  },
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.kind = ({
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })[entry.source.name]
+      return vim_item
+    end,
+  },
+  enabled = function()
+    -- Enable completion only for markdown wikilinks
+    local context = require("cmp.config.context")
+    if vim.bo.filetype == "markdown" then
+      local col = vim.fn.col(".") - 1
+      local line = vim.fn.getline(".")
+      return line:sub(col - 1, col) == "[["
+    end
+    return true
+  end,
+})
+
+-- Custom source for wikilink suggestions
+cmp.register_source("wikilinks", {
+  complete = function(self, request, callback)
+    local files = vim.fn.globpath(".", "*.md", false, true)
+    local items = {}
+    for _, file in ipairs(files) do
+      table.insert(items, { label = vim.fn.fnamemodify(file, ":t:r") })
+    end
+    callback({ items = items })
+  end,
+})
+
+cmp.setup.filetype("markdown", {
+  sources = {
+    { name = "wikilinks" },
+    { name = "buffer" },
+    { name = "path" },
+  },
+})
