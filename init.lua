@@ -2,20 +2,6 @@
 require("config.lazy")
 
 -- boostrap mini plugins
-require("mini.comment").setup({})
-require("mini.icons").setup({})
-require("mini.surround").setup({})
-require("mini.diff").setup({})
-require("mini.git").setup({})
-require("mini.move").setup({
-  mappings = {
-    left = "H",
-    right = "L",
-    down = "J",
-    up = "K",
-  },
-})
-
 -- boostrap LSP and LSP server config
 require("lspconfig").jedi_language_server.setup({})
 
