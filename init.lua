@@ -5,6 +5,8 @@ require("config.lazy")
 require("mini.comment").setup({})
 require("mini.icons").setup({})
 require("mini.surround").setup({})
+require("mini.diff").setup({})
+require("mini.git").setup({})
 require("mini.move").setup({
   mappings = {
     left = "H",
@@ -13,11 +15,10 @@ require("mini.move").setup({
     up = "K",
   },
 })
+
 -- boostrap LSP and LSP server config
-require("lspconfig").ruff.setup({})
-require("lspconfig").pyright.setup({})
-require("lspconfig").tinymist.setup({})
-require("lspconfig").markdown_oxide.setup({})
+require("lspconfig").jedi_language_server.setup({})
+
 require("lualine").setup({
   options = {
     theme = {
@@ -70,3 +71,10 @@ vim.api.nvim_set_keymap("t", "<Esc><Esc>", [[<C-\><C-n>]], { noremap = true, sil
 
 -- Change the background color to #000000
 vim.cmd("highlight Normal guibg=#000000")
+local cmp = require("cmp")
+cmp.setup({
+  mapping = {
+    ["<C-k>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-j>"] = cmp.mapping.scroll_docs(4),
+  },
+})
