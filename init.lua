@@ -2,9 +2,17 @@
 require("config.lazy")
 
 -- boostrap mini plugins
+require("mini.move").setup({
+  mappings = {
+    left = "H",
+    right = "L",
+    down = "J",
+    up = "K",
+  },
+})
 -- boostrap LSP and LSP server config
+require("lspconfig").markdown_oxide.setup({})
 require("lspconfig").jedi_language_server.setup({})
-
 require("lualine").setup({
   options = {
     theme = {
