@@ -29,39 +29,39 @@ require("lualine").setup({
         z = { fg = "#808080", bg = "#000000" },
       },
       insert = {
-        a = { fg = "#000000", bg = "#00ff00", gui = "bold" },
-        b = { fg = "#000000", bg = "#000000" },
-        c = { fg = "#000000", bg = "#000000" },
+        a = { fg = "#ffffff", bg = "#00ff00", gui = "bold" },
+        b = { fg = "#ffffff", bg = "#000000" },
+        c = { fg = "#ffffff", bg = "#000000" },
         z = { fg = "#808080", bg = "#000000" },
       },
       visual = {
         a = { fg = "#000000", bg = "#ff0000", gui = "bold" },
-        b = { fg = "#000000", bg = "#000000" },
-        c = { fg = "#000000", bg = "#000000" },
+        b = { fg = "#ffffff", bg = "#000000" },
+        c = { fg = "#ffffff", bg = "#000000" },
         z = { fg = "#808080", bg = "#000000" },
       },
       replace = {
-        a = { fg = "#000000", bg = "#ffff00", gui = "bold" },
-        b = { fg = "#000000", bg = "#000000" },
-        c = { fg = "#000000", bg = "#000000" },
-        z = { fg = "#808080", bg = "#000000" },
+        a = { fg = "#ffffff", bg = "#ffff00", gui = "bold" },
+        b = { fg = "#ffffff", bg = "#000000" },
+        c = { fg = "#ffffff", bg = "#000000" },
+        z = { fg = "#ffffff", bg = "#000000" },
       },
       command = {
-        a = { fg = "#000000", bg = "#ff00ff", gui = "bold" },
-        b = { fg = "#000000", bg = "#000000" },
-        c = { fg = "#000000", bg = "#000000" },
+        a = { fg = "#ffffff", bg = "#ff00ff", gui = "bold" },
+        b = { fg = "#ffffff", bg = "#000000" },
+        c = { fg = "#ffffff", bg = "#000000" },
         z = { fg = "#808080", bg = "#000000" },
       },
       inactive = {
-        a = { fg = "#808080", bg = "#303030", gui = "bold" },
-        b = { fg = "#808080", bg = "#000000" },
-        c = { fg = "#808080", bg = "#000000" },
+        a = { fg = "#ffffff", bg = "#303030", gui = "bold" },
+        b = { fg = "#ffffff", bg = "#000000" },
+        c = { fg = "#ffffff", bg = "#000000" },
         z = { fg = "#808080", bg = "#000000" },
       },
       terminal = {
-        a = { fg = "#000000", bg = "#00ffff", gui = "bold" },
-        b = { fg = "#000000", bg = "#000000" },
-        c = { fg = "#000000", bg = "#000000" },
+        a = { fg = "#ffffff", bg = "#00ffff", gui = "bold" },
+        b = { fg = "#ffffff", bg = "#000000" },
+        c = { fg = "#ffffff", bg = "#000000" },
         z = { fg = "#808080", bg = "#000000" },
       },
     },
@@ -122,3 +122,8 @@ vim.cmd([[
     command MagmaInitCSharp lua MagmaInitCSharp()
     command MagmaInitFSharp lua MagmaInitFSharp()
 ]])
+-- Customize LSP popup colors
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e1e1e", fg = "#dcdcdc" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#1e1e1e", fg = "#5f5f5f" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "#2d2d2d", fg = "#dcdcdc" })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#5f5f5f", fg = "#ffffff" })
