@@ -1,18 +1,5 @@
 return {
-	{
-		"m4xshen/hardtime.nvim",
-		lazy = false,
-		dependencies = { "MunifTanjim/nui.nvim" },
-		opts = {},
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	},
+
 	{
 		"brenton-leighton/multiple-cursors.nvim",
 		version = "*", -- Use the latest tagged version
@@ -61,5 +48,8 @@ return {
 
 			{ "<Leader>l", "<Cmd>MultipleCursorsLock<CR>", mode = { "n", "x" }, desc = "Lock virtual cursors" },
 		},
+	},
+	{
+		"Vigemus/iron.nvim",
 	},
 }
