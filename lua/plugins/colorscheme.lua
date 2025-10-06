@@ -1,5 +1,1 @@
-return {
-	"scottmckendry/cyberdream.nvim",
-	lazy = false,
-	priority = 1000,
-}
+return { "miikanissi/modus-themes.nvim", priority = 1000 }

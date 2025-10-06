@@ -49,7 +49,4 @@ return {
 			{ "<Leader>l", "<Cmd>MultipleCursorsLock<CR>", mode = { "n", "x" }, desc = "Lock virtual cursors" },
 		},
 	},
-	{
-		"Vigemus/iron.nvim",
-	},
 }
