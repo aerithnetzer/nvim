@@ -1,8 +1,4 @@
-# Aerith's💤 LazyVim
+# 💤 LazyVim
 
-This template uses lazyvim with a preference for lsp-config.
-
-Some future things to figure out:
-  - Better lualine stuff
-  - No more markdown linting
-  - Better python venv management
+A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+Refer to the [documentation](https://lazyvim.github.io/installation) to get started.

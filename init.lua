@@ -1,57 +1,20 @@
+-- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
-require("mini.pairs").setup()
-vim.g.lazyvim_python_lsp = "pyright"
-require("lualine").setup({
-	options = {
-		icons_enabled = true,
-		theme = "tomorrow_night",
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
-		disabled_filetypes = {
-			statusline = {},
-			winbar = {},
-		},
-		ignore_focus = {},
-		always_divide_middle = true,
-		always_show_tabline = true,
-		globalstatus = false,
-		refresh = {
-			statusline = 1000,
-			tabline = 1000,
-			winbar = 1000,
-			refresh_time = 16, -- ~60fps
-			events = {
-				"WinEnter",
-				"BufEnter",
-				"BufWritePost",
-				"SessionLoadPost",
-				"FileChangedShellPost",
-				"VimResized",
-				"Filetype",
-				"CursorMoved",
-				"CursorMovedI",
-				"ModeChanged",
-			},
-		},
-	},
-	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = { "filename" },
-		lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
-	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
-		lualine_y = {},
-		lualine_z = {},
-	},
-	tabline = {},
-	winbar = {},
-	inactive_winbar = {},
-	extensions = {},
-})
+require("cmp")
+-- Normal
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+-- Insert
+vim.keymap.set("i", "<C-h>", "<Esc><C-w>h")
+vim.keymap.set("i", "<C-j>", "<Esc><C-w>j")
+vim.keymap.set("i", "<C-k>", "<Esc><C-w>k")
+vim.keymap.set("i", "<C-l>", "<Esc><C-w>l")
+
+-- Terminal
+vim.keymap.set("t", "<C-h>", [[<C-\><C-n><C-w>h]])
+vim.keymap.set("t", "<C-j>", [[<C-\><C-n><C-w>j]])
+vim.keymap.set("t", "<C-k>", [[<C-\><C-n><C-w>k]])
+vim.keymap.set("t", "<C-l>", [[<C-\><C-n><C-w>l]])
