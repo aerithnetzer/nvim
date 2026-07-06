@@ -1,0 +1,1 @@
+/home/aerith/.config/omarchy/current/theme/neovim.lua
